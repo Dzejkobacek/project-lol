@@ -1,0 +1,45 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Times New Roman", Times, serif;
+}
+.heading {
+  font-weight: 700;
+  font-size: 3rem;
+  text-align: center;
+}
+
+.kus-textu {
+  font-size: 1.5rem;
+}
+
+.text-container {
+  padding: 1rem 3rem;
+}
+
+.responsive-img {
+  border: 5px solid #3f3f3f;
+  border-radius: 5px;
+  box-shadow: 4px 4px 5px #888888;
+  margin: 1rem 0rem;
+}
+.list-schopnosti-container {
+  width: 100%;
+  background-color: cornsilk;
+  text-align: left;
+}
+
+.list-schopnosti {
+}
+
+ul li {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+#obrazek-container {
+  background-image: url("./images/vladimir.jpg");
+  height: 100vh;
+}
