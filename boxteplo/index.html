@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BoxTeplo – Teplé krabičky v chytrých boxech</title>
+  <meta name="description" content="BoxTeplo – chytré vyhřívané boxy s krabičkovou stravou. Objednej. Vyzvedni. Ohřej. Jdi. Teplé jídlo kdykoliv a bez čekání." />
+  <meta name="theme-color" content="#E67E22" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23E67E22'/%3E%3Cpath d='M9 13h14v10a2 2 0 0 1-2 2H11a2 2 0 0 1-2-2z' fill='%23fff'/%3E%3Cpath d='M13 6c0 2-2 2-2 4M17 6c0 2-2 2-2 4M21 6c0 2-2 2-2 4' stroke='%23fff' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Přeskočit na obsah</a>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a href="#top" class="logo" aria-label="BoxTeplo – úvod">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32"><rect width="32" height="32" rx="9" fill="currentColor"/><path d="M8 14h16v9a3 3 0 0 1-3 3H11a3 3 0 0 1-3-3z" fill="#fff"/><path d="M12.5 6.5c0 2-2 2-2 4M17 6.5c0 2-2 2-2 4M21.5 6.5c0 2-2 2-2 4" stroke="#fff" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg>
+        </span>
+        <span class="logo-text">Box<strong>Teplo</strong></span>
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Hlavní navigace">
+        <ul>
+          <li><a href="#jak-to-funguje">Jak to funguje</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#boxy">Boxy</a></li>
+          <li><a href="#cenik">Ceník</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+        <a href="#boxy" class="btn btn-primary btn-sm nav-cta-mobile">Najít box</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="#boxy" class="btn btn-primary btn-sm header-cta">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          Najít box
+        </a>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Otevřít menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="dot"></span> Objednej. Vyzvedni. Ohřej. Jdi.</p>
+          <h1 id="hero-title">Teplé jídlo z&nbsp;boxu. <span class="accent">Bez čekání.</span></h1>
+          <p class="lead">Teplé krabičky v&nbsp;chytrých boxech. Kdykoliv a&nbsp;bez čekání. Objednej si předem, nebo si vyber na místě – box ti jídlo ohřeje přesně na ideální teplotu a&nbsp;ty si ho jen vyzvedneš kódem.</p>
+          <div class="hero-ctas">
+            <a href="#objednavka" class="btn btn-primary btn-lg" data-mode="preorder">Objednat do boxu</a>
+            <a href="#menu" class="btn btn-outline btn-lg">Vybrat z dostupných</a>
+          </div>
+          <ul class="hero-benefits">
+            <li>
+              <span class="ico ico-orange" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="16" rx="3"/><path d="M4 10h16M9 3v4M15 3v4"/></svg></span>
+              Objednej předem
+            </li>
+            <li>
+              <span class="ico ico-green" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+              Vyzvedni kdy chceš
+            </li>
+            <li>
+              <span class="ico ico-orange" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3c2 3 5 5 5 9a5 5 0 0 1-10 0c0-2 1-3.5 2-4.5.3 1.5 1 2.5 2 3 0-3 0-5 1-7.5z"/></svg></span>
+              Ohřeje ti to automaticky
+            </li>
+          </ul>
+        </div>
+
+        <div class="hero-visual">
+          <figure class="hero-photo">
+            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=900&q=80" alt="Čerstvý zeleninový bowl s kuřecím masem a avokádem" width="900" height="1000" loading="eager" />
+          </figure>
+
+          <div class="float-card locker-card" aria-hidden="true">
+            <div class="locker">
+              <div class="locker-cell"></div><div class="locker-cell"></div><div class="locker-cell"></div>
+              <div class="locker-cell"></div><div class="locker-cell active"><span>B4</span></div><div class="locker-cell"></div>
+              <div class="locker-cell"></div><div class="locker-cell"></div><div class="locker-cell"></div>
+            </div>
+            <div>
+              <p class="fc-title">Box B4 · Florenc</p>
+              <p class="fc-sub"><span class="pulse"></span> Ohřáto · připraveno</p>
+            </div>
+          </div>
+
+          <div class="float-card temp-card" aria-hidden="true">
+            <span class="temp-ico"><svg viewBox="0 0 24 24"><path d="M14 14.8V5a2 2 0 1 0-4 0v9.8a4 4 0 1 0 4 0z"/></svg></span>
+            <div>
+              <p class="fc-title">68&nbsp;°C</p>
+              <p class="fc-sub">ideální teplota</p>
+            </div>
+          </div>
+
+          <div class="float-card code-card" aria-hidden="true">
+            <p class="fc-sub">Tvůj kód</p>
+            <p class="code">4 8 2 7</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ JAK TO FUNGUJE ============ -->
+    <section class="section" id="jak-to-funguje" aria-labelledby="how-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Jak to funguje</p>
+          <h2 id="how-title">Čtyři kroky k&nbsp;teplému obědu</h2>
+          <p class="section-lead">Celé to zabere méně času než čekání ve frontě na kafe.</p>
+        </header>
+
+        <ol class="steps">
+          <li class="step reveal">
+            <span class="step-num">01</span>
+            <span class="step-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 11h18M5 11a7 7 0 0 0 14 0M12 4v3M8 5l1 2M16 5l-1 2"/><path d="M7 21h10"/></svg></span>
+            <h3>Vyber jídlo a box</h3>
+            <p>V&nbsp;aplikaci nebo na webu zvol krabičku a&nbsp;nejbližší box. Nebo přijď a&nbsp;vyber si přímo na displeji.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step-num">02</span>
+            <span class="step-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 7v10l9 4 9-4V7M12 11v10"/></svg></span>
+            <h3>My naložíme čerstvou krabičku</h3>
+            <p>Každé ráno vaříme z&nbsp;čerstvých surovin a&nbsp;krabičky rozvážíme do chlazené části boxů.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step-num">03</span>
+            <span class="step-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3c2 3 5 5 5 9a5 5 0 0 1-10 0c0-2 1-3.5 2-4.5.3 1.5 1 2.5 2 3 0-3 0-5 1-7.5z"/></svg></span>
+            <h3>Box ohřeje na ideální teplotu</h3>
+            <p>Podle času vyzvednutí box jídlo šetrně ohřeje – u&nbsp;každé krabičky přesně podle receptu.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step-num">04</span>
+            <span class="step-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM20 14v.01M14 20h.01M17 20h4v-3"/></svg></span>
+            <h3>Vyzvedni a&nbsp;jdi</h3>
+            <p>Naskenuj QR nebo zadej kód, dvířka se otevřou a&nbsp;teplé jídlo je tvoje. Hotovo za 10&nbsp;vteřin.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ MENU / PROGRAMY ============ -->
+    <section class="section section-soft" id="menu" aria-labelledby="menu-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Naše krabičky</p>
+          <h2 id="menu-title">Vyber si program, který ti sedí</h2>
+          <p class="section-lead">Čtyři programy, každý den nové menu. Vaří naši kuchaři, nutriční hodnoty hlídá nutriční terapeutka.</p>
+        </header>
+
+        <div class="programs">
+          <article class="program-card reveal" data-program="classic">
+            <figure class="program-img">
+              <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=700&q=75" alt="Vyvážený talíř s masem a přílohou" loading="lazy" width="700" height="460" />
+              <span class="tag tag-orange">Nejoblíbenější</span>
+            </figure>
+            <div class="program-body">
+              <h3>BoxTeplo <span>Classic</span></h3>
+              <p>Vyvážené porce na každý den. Poctivá česká i&nbsp;světová kuchyně bez zbytečných kompromisů.</p>
+              <ul class="dish-examples">
+                <li>Kuřecí na paprice s&nbsp;bulgurem</li>
+                <li>Hovězí guláš s&nbsp;bramborem</li>
+              </ul>
+              <div class="program-meta"><span>550–650 kcal</span><span>30 g bílkovin</span></div>
+              <div class="program-foot">
+                <p class="price">od <strong>149&nbsp;Kč</strong><small>/krabička</small></p>
+                <a href="#objednavka" class="btn btn-dark btn-sm" data-program-select="Classic">Vybrat</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="program-card reveal" data-program="fit">
+            <figure class="program-img">
+              <img src="https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=700&q=75" alt="Grilované kuřecí prso se zeleninou" loading="lazy" width="700" height="460" />
+              <span class="tag tag-dark">High protein</span>
+            </figure>
+            <div class="program-body">
+              <h3>BoxTeplo <span>Fit</span></h3>
+              <p>Vyšší podíl bílkovin pro aktivní dny, trénink a&nbsp;regeneraci. Ideální po posilovně.</p>
+              <ul class="dish-examples">
+                <li>Krůtí steak, quinoa, brokolice</li>
+                <li>Hovězí bowl s&nbsp;rýží a&nbsp;edamame</li>
+              </ul>
+              <div class="program-meta"><span>600–700 kcal</span><span>45 g bílkovin</span></div>
+              <div class="program-foot">
+                <p class="price">od <strong>169&nbsp;Kč</strong><small>/krabička</small></p>
+                <a href="#objednavka" class="btn btn-dark btn-sm" data-program-select="Fit">Vybrat</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="program-card reveal" data-program="light">
+            <figure class="program-img">
+              <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=700&q=75" alt="Pečený losos se zeleninou" loading="lazy" width="700" height="460" />
+              <span class="tag tag-green">Do 450 kcal</span>
+            </figure>
+            <div class="program-body">
+              <h3>BoxTeplo <span>Light</span></h3>
+              <p>Nižší kalorie, plná chuť. Lehké jídlo, po kterém nebudeš odpoledne usínat u&nbsp;počítače.</p>
+              <ul class="dish-examples">
+                <li>Losos, pečená zelenina, bylinky</li>
+                <li>Kuřecí kari s&nbsp;květákovou rýží</li>
+              </ul>
+              <div class="program-meta"><span>380–450 kcal</span><span>28 g bílkovin</span></div>
+              <div class="program-foot">
+                <p class="price">od <strong>159&nbsp;Kč</strong><small>/krabička</small></p>
+                <a href="#objednavka" class="btn btn-dark btn-sm" data-program-select="Light">Vybrat</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="program-card reveal" data-program="vege">
+            <figure class="program-img">
+              <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=700&q=75" alt="Barevný vegetariánský bowl" loading="lazy" width="700" height="460" />
+              <span class="tag tag-green">100% rostlinné</span>
+            </figure>
+            <div class="program-body">
+              <h3>BoxTeplo <span>Vege</span></h3>
+              <p>Vegetariánské a&nbsp;veganské recepty plné luštěnin, zeleniny a&nbsp;koření. Sytí i&nbsp;masožravce.</p>
+              <ul class="dish-examples">
+                <li>Cizrnové kari s&nbsp;basmati</li>
+                <li>Pečené tofu, batáty a&nbsp;špenát</li>
+              </ul>
+              <div class="program-meta"><span>500–600 kcal</span><span>24 g bílkovin</span></div>
+              <div class="program-foot">
+                <p class="price">od <strong>149&nbsp;Kč</strong><small>/krabička</small></p>
+                <a href="#objednavka" class="btn btn-dark btn-sm" data-program-select="Vege">Vybrat</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Dnešní nabídka s filtrem -->
+        <div class="today" id="dnes">
+          <div class="today-head">
+            <div>
+              <h3>Dnes v&nbsp;boxech</h3>
+              <p class="muted">Krabičky, které si můžeš vybrat rovnou na místě.</p>
+            </div>
+            <div class="filters" role="group" aria-label="Filtr jídel">
+              <button class="chip is-active" data-filter="all" aria-pressed="true">Vše</button>
+              <button class="chip" data-filter="classic" aria-pressed="false">Classic</button>
+              <button class="chip" data-filter="fit" aria-pressed="false">Fit</button>
+              <button class="chip" data-filter="light" aria-pressed="false">Light</button>
+              <button class="chip" data-filter="vege" aria-pressed="false">Vege</button>
+            </div>
+          </div>
+
+          <ul class="dish-grid" id="dish-grid">
+            <li class="dish" data-cat="classic">
+              <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=400&q=70" alt="" loading="lazy" width="400" height="300" />
+              <div class="dish-body">
+                <span class="dish-cat">Classic</span>
+                <h4>Kuřecí na paprice, bulgur</h4>
+                <p class="dish-info">620 kcal · 34 g B</p>
+                <p class="dish-row"><span class="stock ok">12 ks dostupných</span><strong>149 Kč</strong></p>
+              </div>
+            </li>
+            <li class="dish" data-cat="fit">
+              <img src="https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=400&q=70" alt="" loading="lazy" width="400" height="300" />
+              <div class="dish-body">
+                <span class="dish-cat">Fit</span>
+                <h4>Krůtí steak, quinoa, brokolice</h4>
+                <p class="dish-info">650 kcal · 48 g B</p>
+                <p class="dish-row"><span class="stock ok">8 ks dostupných</span><strong>169 Kč</strong></p>
+              </div>
+            </li>
+            <li class="dish" data-cat="light">
+              <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=400&q=70" alt="" loading="lazy" width="400" height="300" />
+              <div class="dish-body">
+                <span class="dish-cat">Light</span>
+                <h4>Losos, pečená zelenina</h4>
+                <p class="dish-info">430 kcal · 31 g B</p>
+                <p class="dish-row"><span class="stock low">Poslední 3 ks</span><strong>179 Kč</strong></p>
+              </div>
+            </li>
+            <li class="dish" data-cat="vege">
+              <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=70" alt="" loading="lazy" width="400" height="300" />
+              <div class="dish-body">
+                <span class="dish-cat">Vege</span>
+                <h4>Cizrnové kari, basmati</h4>
+                <p class="dish-info">560 kcal · 22 g B</p>
+                <p class="dish-row"><span class="stock ok">10 ks dostupných</span><strong>149 Kč</strong></p>
+              </div>
+            </li>
+            <li class="dish" data-cat="classic">
+              <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=70" alt="" loading="lazy" width="400" height="300" />
+              <div class="dish-body">
+                <span class="dish-cat">Classic</span>
+                <h4>Hovězí guláš, brambor</h4>
+                <p class="dish-info">640 kcal · 36 g B</p>
+                <p class="dish-row"><span class="stock ok">6 ks dostupných</span><strong>159 Kč</strong></p>
+              </div>
+            </li>
+            <li class="dish" data-cat="vege light">
+              <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=400&q=70" alt="" loading="lazy" width="400" height="300" />
+              <div class="dish-body">
+                <span class="dish-cat">Vege · Light</span>
+                <h4>Pečené tofu, batáty, špenát</h4>
+                <p class="dish-info">440 kcal · 25 g B</p>
+                <p class="dish-row"><span class="stock low">Poslední 2 ks</span><strong>159 Kč</strong></p>
+              </div>
+            </li>
+          </ul>
+          <p class="filter-empty" hidden>V&nbsp;této kategorii dnes nic není. Zkus jiný filtr.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BOXY / LOKALITY ============ -->
+    <section class="section" id="boxy" aria-labelledby="boxes-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Kde jsou naše boxy</p>
+          <h2 id="boxes-title">Box najdeš tam, kde se pohybuješ</h2>
+          <p class="section-lead">Kanceláře, fitka, nákupní centra, nádraží i&nbsp;sídliště. Přes 40 boxů v&nbsp;Praze a&nbsp;Brně – a&nbsp;přibývají další.</p>
+        </header>
+
+        <div class="locator">
+          <div class="locator-panel">
+            <form class="search" role="search" onsubmit="return false">
+              <label for="box-search" class="visually-hidden">Hledat box podle adresy nebo místa</label>
+              <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+              <input id="box-search" type="search" placeholder="Zadej město, ulici nebo místo…" autocomplete="off" />
+            </form>
+            <div class="loc-types" role="group" aria-label="Typ lokality">
+              <button class="chip chip-sm is-active" data-type="all" aria-pressed="true">Vše</button>
+              <button class="chip chip-sm" data-type="kancelar" aria-pressed="false">Kanceláře</button>
+              <button class="chip chip-sm" data-type="fitness" aria-pressed="false">Fitness</button>
+              <button class="chip chip-sm" data-type="oc" aria-pressed="false">Nákupní centra</button>
+              <button class="chip chip-sm" data-type="nadrazi" aria-pressed="false">Nádraží</button>
+              <button class="chip chip-sm" data-type="sidliste" aria-pressed="false">Sídliště</button>
+            </div>
+
+            <ul class="loc-list" id="loc-list" aria-live="polite">
+              <li><button class="loc" data-type="nadrazi" data-pin="1">
+                <span class="loc-ico" aria-hidden="true">🚉</span>
+                <span class="loc-main"><strong>Praha – Florenc</strong><small>Autobusové nádraží, hala B · nonstop</small></span>
+                <span class="loc-free ok">7 volných</span>
+              </button></li>
+              <li><button class="loc" data-type="kancelar" data-pin="2">
+                <span class="loc-ico" aria-hidden="true">🏢</span>
+                <span class="loc-main"><strong>Praha – Karlín, Corso</strong><small>Křižíkova 36a · Po–Pá 6–22</small></span>
+                <span class="loc-free ok">4 volné</span>
+              </button></li>
+              <li><button class="loc" data-type="oc" data-pin="3">
+                <span class="loc-ico" aria-hidden="true">🛍️</span>
+                <span class="loc-main"><strong>Praha – OC Chodov</strong><small>Roztylská 2321/19 · denně 9–21</small></span>
+                <span class="loc-free low">1 volný</span>
+              </button></li>
+              <li><button class="loc" data-type="fitness" data-pin="4">
+                <span class="loc-ico" aria-hidden="true">🏋️</span>
+                <span class="loc-main"><strong>Praha – Holešovice, FitZone</strong><small>Argentinská 38 · denně 6–23</small></span>
+                <span class="loc-free ok">5 volných</span>
+              </button></li>
+              <li><button class="loc" data-type="sidliste" data-pin="5">
+                <span class="loc-ico" aria-hidden="true">🏘️</span>
+                <span class="loc-main"><strong>Praha – Jižní Město, Opatov</strong><small>U stanice metra C · nonstop</small></span>
+                <span class="loc-free ok">9 volných</span>
+              </button></li>
+              <li><button class="loc" data-type="kancelar" data-pin="6">
+                <span class="loc-ico" aria-hidden="true">🏢</span>
+                <span class="loc-main"><strong>Praha – Pankrác, City Tower</strong><small>Hvězdova 1716/2b · Po–Pá 7–20</small></span>
+                <span class="loc-free full">Plno · uvolní se 13:30</span>
+              </button></li>
+              <li><button class="loc" data-type="nadrazi" data-pin="7">
+                <span class="loc-ico" aria-hidden="true">🚉</span>
+                <span class="loc-main"><strong>Brno – Hlavní nádraží</strong><small>Nádražní 1, vestibul · nonstop</small></span>
+                <span class="loc-free ok">6 volných</span>
+              </button></li>
+              <li><button class="loc" data-type="oc" data-pin="8">
+                <span class="loc-ico" aria-hidden="true">🛍️</span>
+                <span class="loc-main"><strong>Brno – Galerie Vaňkovka</strong><small>Ve Vaňkovce 1 · denně 9–21</small></span>
+                <span class="loc-free ok">3 volné</span>
+              </button></li>
+            </ul>
+            <p class="loc-empty" hidden>Tady zatím box nemáme. <a href="#kontakt">Napiš nám</a>, kde by se ti hodil!</p>
+          </div>
+
+          <div class="map" aria-label="Orientační mapa boxů (náhled)" role="img">
+            <svg class="map-bg" viewBox="0 0 600 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <defs>
+                <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0v40" fill="none" stroke="currentColor" stroke-opacity=".06"/></pattern>
+              </defs>
+              <rect width="600" height="520" fill="url(#grid)"/>
+              <path class="map-river" d="M-20 140 C 80 120, 140 210, 230 200 S 360 120, 420 220 S 520 360, 640 330" />
+              <path class="map-park" d="M60 330 q40-40 90-10 t60 50 q-20 50-80 40 t-70-80z"/>
+              <path class="map-park" d="M420 60 q50-20 90 10 t20 60 q-40 30-80 10 t-30-80z"/>
+              <g class="map-roads">
+                <path d="M0 260 H600"/><path d="M300 0 V520"/><path d="M0 60 L600 470"/><path d="M90 520 L520 0"/>
+                <path d="M0 420 Q300 380 600 430"/><path d="M150 0 Q170 260 120 520"/>
+              </g>
+            </svg>
+            <button class="pin" data-pin="1" style="left:54%;top:34%" aria-label="Praha – Florenc"><span>7</span></button>
+            <button class="pin" data-pin="2" style="left:66%;top:28%" aria-label="Praha – Karlín"><span>4</span></button>
+            <button class="pin low" data-pin="3" style="left:62%;top:80%" aria-label="Praha – OC Chodov"><span>1</span></button>
+            <button class="pin" data-pin="4" style="left:44%;top:18%" aria-label="Praha – Holešovice"><span>5</span></button>
+            <button class="pin" data-pin="5" style="left:76%;top:70%" aria-label="Praha – Jižní Město"><span>9</span></button>
+            <button class="pin full" data-pin="6" style="left:50%;top:60%" aria-label="Praha – Pankrác"><span>0</span></button>
+            <button class="pin" data-pin="7" style="left:22%;top:52%" aria-label="Brno – Hlavní nádraží"><span>6</span></button>
+            <button class="pin" data-pin="8" style="left:30%;top:64%" aria-label="Brno – Vaňkovka"><span>3</span></button>
+            <div class="map-legend">
+              <span><i class="lg ok"></i>volné boxy</span>
+              <span><i class="lg low"></i>poslední</span>
+              <span><i class="lg full"></i>plno</span>
+            </div>
+            <button class="btn btn-light btn-sm map-locate" type="button" id="locate-btn">
+              <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><circle cx="12" cy="12" r="7"/></svg>
+              Najít nejbližší
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROČ BOXTEPLO ============ -->
+    <section class="section section-dark" aria-labelledby="why-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow eyebrow-light">Proč BoxTeplo</p>
+          <h2 id="why-title">Jídlo, které se přizpůsobí tvému dni</h2>
+        </header>
+        <ul class="why-grid">
+          <li class="why reveal">
+            <span class="why-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9 2h6"/></svg></span>
+            <h3>Úspora času</h3>
+            <p>Žádné vaření, fronty ani čekání na kurýra. Vyzvednutí trvá pár vteřin.</p>
+          </li>
+          <li class="why reveal">
+            <span class="why-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3c2 3 5 5 5 9a5 5 0 0 1-10 0c0-2 1-3.5 2-4.5.3 1.5 1 2.5 2 3 0-3 0-5 1-7.5z"/></svg></span>
+            <h3>Vždy teplé jídlo</h3>
+            <p>Box ohřívá těsně před vyzvednutím. Žádná vlažná krabička z&nbsp;tašky.</p>
+          </li>
+          <li class="why reveal">
+            <span class="why-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span>
+            <h3>Nutričně vyvážené</h3>
+            <p>Každé jídlo sestavuje nutriční terapeutka. Kalorie a&nbsp;makra vidíš předem.</p>
+          </li>
+          <li class="why reveal">
+            <span class="why-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M17 2l4 4-4 4M3 11V9a3 3 0 0 1 3-3h15M7 22l-4-4 4-4M21 13v2a3 3 0 0 1-3 3H3"/></svg></span>
+            <h3>Flexibilní</h3>
+            <p>Objednej předem s&nbsp;garancí, nebo se rozhodni až na místě. Jak se ti to hodí.</p>
+          </li>
+          <li class="why reveal">
+            <span class="why-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 4 13c0-6 7-9 16-10-1 9-4 16-10 16"/><path d="M4 21c3-6 7-9 11-11"/></svg></span>
+            <h3>Čerstvé suroviny</h3>
+            <p>Vaříme každé ráno z&nbsp;lokálních surovin. Bez konzervantů, bez zbytečností.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ CENÍK ============ -->
+    <section class="section" id="cenik" aria-labelledby="price-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Ceník</p>
+          <h2 id="price-title">Jednoduché ceny, žádné skryté poplatky</h2>
+          <p class="section-lead">Platíš jen za jídlo. Ohřev i&nbsp;rezervace boxu jsou v&nbsp;ceně.</p>
+        </header>
+
+        <div class="billing-toggle" role="group" aria-label="Typ platby">
+          <button class="toggle-opt is-active" data-billing="once" aria-pressed="true">Jednorázově</button>
+          <button class="toggle-opt" data-billing="sub" aria-pressed="false">Předplatné <span class="save">−10&nbsp;%</span></button>
+        </div>
+
+        <div class="pricing">
+          <article class="price-card reveal">
+            <h3>Jedna krabička</h3>
+            <p class="price-desc">Když dostaneš chuť. Objednej předem nebo vyber na místě.</p>
+            <p class="price-big"><span class="amount" data-once="149" data-sub="149">149</span>&nbsp;Kč <small>/ krabička</small></p>
+            <ul class="checks">
+              <li>Jakýkoliv program</li>
+              <li>Ohřev v&nbsp;ceně</li>
+              <li>Bez registrace na místě</li>
+            </ul>
+            <a href="#objednavka" class="btn btn-outline btn-block">Objednat</a>
+          </article>
+
+          <article class="price-card reveal">
+            <h3>Denní balíček</h3>
+            <p class="price-desc">Oběd + večeře do jednoho boxu, vyzvedneš každou zvlášť.</p>
+            <p class="price-big"><span class="amount" data-once="279" data-sub="251">279</span>&nbsp;Kč <small>/ den</small></p>
+            <ul class="checks">
+              <li>2 krabičky denně</li>
+              <li>Mix programů</li>
+              <li>Garance místa v&nbsp;boxu</li>
+            </ul>
+            <a href="#objednavka" class="btn btn-outline btn-block">Objednat</a>
+          </article>
+
+          <article class="price-card featured reveal">
+            <span class="ribbon">Nejvýhodnější</span>
+            <h3>Týdenní balíček</h3>
+            <p class="price-desc">5 pracovních dnů, oběd každý den v&nbsp;tvém boxu.</p>
+            <p class="price-big"><span class="amount" data-once="129" data-sub="116">129</span>&nbsp;Kč <small>/ krabička</small></p>
+            <ul class="checks">
+              <li>5 krabiček (Po–Pá)</li>
+              <li>Pevně rezervovaný box</li>
+              <li>Výměna jídla do 20:00 předchozího dne</li>
+              <li>Dezert v&nbsp;pátek zdarma</li>
+            </ul>
+            <a href="#objednavka" class="btn btn-primary btn-block">Vybrat týden</a>
+          </article>
+
+          <article class="price-card reveal">
+            <h3>Firemní</h3>
+            <p class="price-desc">Box přímo ve vaší kanceláři pro celý tým.</p>
+            <p class="price-big"><span class="amount-text">Na míru</span></p>
+            <ul class="checks">
+              <li>Box instalujeme zdarma</li>
+              <li>Příspěvek zaměstnavatele</li>
+              <li>Měsíční fakturace</li>
+            </ul>
+            <a href="#kontakt" class="btn btn-outline btn-block">Poptat</a>
+          </article>
+        </div>
+        <p class="price-note">Ceny jsou včetně DPH. Předplatné lze kdykoliv pozastavit nebo zrušit.</p>
+      </div>
+    </section>
+
+    <!-- ============ REFERENCE ============ -->
+    <section class="section section-soft" aria-labelledby="ref-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Reference</p>
+          <h2 id="ref-title">Co říkají ti, kdo už nečekají</h2>
+          <p class="section-lead"><span class="stars" aria-hidden="true">★★★★★</span> 4,8 z&nbsp;5 podle 2 300+ hodnocení</p>
+        </header>
+        <div class="testimonials">
+          <figure class="quote reveal">
+            <blockquote>„Konečně oběd, na který nečekám 20 minut. Ráno objednám, v&nbsp;poledne jdu dolů k&nbsp;boxu a&nbsp;za minutu jsem zpátky u&nbsp;stolu.“</blockquote>
+            <figcaption><span class="avatar" style="--h:24">P</span><span><strong>Petra K.</strong><small>projektová manažerka, Karlín</small></span></figcaption>
+          </figure>
+          <figure class="quote reveal">
+            <blockquote>„Po tréninku si beru Fit krabičku rovnou z&nbsp;boxu ve fitku. Teplá, sytá a&nbsp;vím přesně, kolik má bílkovin.“</blockquote>
+            <figcaption><span class="avatar" style="--h:145">T</span><span><strong>Tomáš V.</strong><small>trenér, Holešovice</small></span></figcaption>
+          </figure>
+          <figure class="quote reveal">
+            <blockquote>„Jezdím vlakem do Brna a&nbsp;box na nádraží je záchrana. Vege kari je lepší než většina restaurací kolem.“</blockquote>
+            <figcaption><span class="avatar" style="--h:200">L</span><span><strong>Lucie M.</strong><small>studentka, Brno</small></span></figcaption>
+          </figure>
+          <figure class="quote reveal">
+            <blockquote>„Box jsme si dali do kanceláře pro 40 lidí. Žádné objednávání přes pět aplikací, všichni jsou spokojení.“</blockquote>
+            <figcaption><span class="avatar" style="--h:12">M</span><span><strong>Martin D.</strong><small>office manager, Pankrác</small></span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <div class="container faq-wrap">
+        <header class="section-head section-head-left">
+          <p class="eyebrow">FAQ</p>
+          <h2 id="faq-title">Časté dotazy</h2>
+          <p class="section-lead">Nenašel jsi odpověď? Napiš nám na <a href="mailto:ahoj@boxteplo.cz">ahoj@boxteplo.cz</a>, odpovídáme do hodiny.</p>
+        </header>
+        <div class="faq">
+          <details open>
+            <summary>Jak funguje ohřev?</summary>
+            <p>Každá schránka má vlastní chlazenou a&nbsp;ohřívací zónu. Krabičky jsou uložené v&nbsp;chladu (do 5&nbsp;°C) a&nbsp;zhruba 8&nbsp;minut před plánovaným vyzvednutím je box šetrně ohřeje na 65–70&nbsp;°C podle typu jídla. Když si vybíráš na místě, ohřev proběhne během 3–4 minut a&nbsp;displej ti ukáže odpočet.</p>
+          </details>
+          <details>
+            <summary>Můžu si vybrat na místě?</summary>
+            <p>Ano. Na displeji boxu nebo v&nbsp;aplikaci uvidíš, které krabičky jsou právě k&nbsp;dispozici. Vybereš, zaplatíš kartou nebo telefonem a&nbsp;box jídlo ohřeje. Pokud chceš mít jistotu konkrétního jídla, doporučujeme objednat předem.</p>
+          </details>
+          <details>
+            <summary>Jak dlouho jídlo vydrží v&nbsp;boxu?</summary>
+            <p>V&nbsp;chlazené části je jídlo čerstvé až 48 hodin od uvaření – datum spotřeby najdeš na víčku i&nbsp;v&nbsp;aplikaci. Po ohřátí ho box drží v&nbsp;teple maximálně 60 minut, pak ho z&nbsp;bezpečnostních důvodů vyřadí a&nbsp;my ti pošleme upozornění.</p>
+          </details>
+          <details>
+            <summary>Co když box není volný?</summary>
+            <p>U&nbsp;objednávky předem máš místo vždy garantované. Pokud vybíráš na místě a&nbsp;box je plný, aplikace ti ukáže nejbližší volný box a&nbsp;čas, kdy se uvolní místo. Na mapě vidíš obsazenost všech boxů v&nbsp;reálném čase.</p>
+          </details>
+          <details>
+            <summary>Platba a&nbsp;rezervace</summary>
+            <p>Platit můžeš kartou, Apple Pay, Google Pay nebo stravenkovou kartou (Edenred, Pluxee, Up). Rezervaci na konkrétní čas uděláš v&nbsp;aplikaci nebo na webu nejpozději do 20:00 předchozího dne, případně ráno do 9:00 z&nbsp;aktuální nabídky. Zrušení do 20:00 předchozího dne je zdarma.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ OBJEDNÁVKA ============ -->
+    <section class="section section-cta" id="objednavka" aria-labelledby="order-title">
+      <div class="container order-grid">
+        <div class="order-copy">
+          <p class="eyebrow eyebrow-light">Objednávka</p>
+          <h2 id="order-title">Zítřejší oběd vyřešíš za&nbsp;30&nbsp;vteřin</h2>
+          <p>Vyber program, box a&nbsp;čas vyzvednutí. Kód ti pošleme e-mailem i&nbsp;do aplikace.</p>
+          <ul class="order-steps" aria-hidden="true">
+            <li>Objednej</li><li>Vyzvedni</li><li>Ohřej</li><li>Jdi</li>
+          </ul>
+        </div>
+
+        <form class="order-form" id="order-form" novalidate>
+          <div class="field">
+            <label for="f-program">Program</label>
+            <select id="f-program" name="program" required>
+              <option>Classic</option>
+              <option>Fit</option>
+              <option>Light</option>
+              <option>Vege</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-box">Box</label>
+            <select id="f-box" name="box" required>
+              <option>Praha – Florenc</option>
+              <option>Praha – Karlín, Corso</option>
+              <option>Praha – OC Chodov</option>
+              <option>Praha – Holešovice, FitZone</option>
+              <option>Praha – Jižní Město, Opatov</option>
+              <option>Praha – Pankrác, City Tower</option>
+              <option>Brno – Hlavní nádraží</option>
+              <option>Brno – Galerie Vaňkovka</option>
+            </select>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="f-date">Den</label>
+              <input id="f-date" name="date" type="date" required />
+            </div>
+            <div class="field">
+              <label for="f-time">Čas vyzvednutí</label>
+              <select id="f-time" name="time">
+                <option>11:30</option><option selected>12:00</option><option>12:30</option><option>13:00</option><option>18:00</option><option>19:00</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-email">E-mail</label>
+            <input id="f-email" name="email" type="email" placeholder="jmeno@email.cz" autocomplete="email" required />
+            <p class="field-error" id="email-error" hidden>Zadej prosím platný e-mail.</p>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block btn-lg">Objednat do boxu</button>
+          <p class="form-note">Odesláním souhlasíš s&nbsp;<a href="#">obchodními podmínkami</a>. Zaplatíš až v&nbsp;dalším kroku.</p>
+          <div class="form-success" id="form-success" hidden role="status">
+            <span class="success-ico" aria-hidden="true">✓</span>
+            <div>
+              <strong>Hotovo! Rezervace přijata.</strong>
+              <p id="success-text"></p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer" id="kontakt">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="#top" class="logo logo-light" aria-label="BoxTeplo – zpět nahoru">
+          <span class="logo-mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32"><rect width="32" height="32" rx="9" fill="currentColor"/><path d="M8 14h16v9a3 3 0 0 1-3 3H11a3 3 0 0 1-3-3z" fill="#fff"/><path d="M12.5 6.5c0 2-2 2-2 4M17 6.5c0 2-2 2-2 4M21.5 6.5c0 2-2 2-2 4" stroke="#fff" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg>
+          </span>
+          <span class="logo-text">Box<strong>Teplo</strong></span>
+        </a>
+        <p>Objednej. Vyzvedni. Ohřej. Jdi.<br />Teplé krabičky v&nbsp;chytrých boxech.</p>
+        <ul class="socials">
+          <li><a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg></a></li>
+          <li><a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M15 3h-2.5A3.5 3.5 0 0 0 9 6.5V9H7v3h2v9h3v-9h2.5l.5-3h-3V6.8c0-.5.3-.8.8-.8H15z"/></svg></a></li>
+          <li><a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5M14 3c.5 2.5 2.3 4 5 4"/></svg></a></li>
+          <li><a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg></a></li>
+        </ul>
+      </div>
+
+      <nav class="footer-col" aria-label="Služba">
+        <h3>Služba</h3>
+        <ul>
+          <li><a href="#jak-to-funguje">Jak to funguje</a></li>
+          <li><a href="#menu">Menu a&nbsp;programy</a></li>
+          <li><a href="#boxy">Mapa boxů</a></li>
+          <li><a href="#cenik">Ceník</a></li>
+          <li><a href="#objednavka">Objednávkový formulář</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-col">
+        <h3>Kontakt</h3>
+        <address>
+          <ul>
+            <li><a href="mailto:ahoj@boxteplo.cz">ahoj@boxteplo.cz</a></li>
+            <li><a href="tel:+420800123456">+420 800 123 456</a></li>
+            <li>Po–Pá 7:00–20:00</li>
+            <li>BoxTeplo s.r.o.<br />Křižíkova 36a, 186 00 Praha 8</li>
+          </ul>
+        </address>
+      </div>
+
+      <nav class="footer-col" aria-label="Právní informace">
+        <h3>Právní info</h3>
+        <ul>
+          <li><a href="#">Obchodní podmínky</a></li>
+          <li><a href="#">Ochrana osobních údajů</a></li>
+          <li><a href="#">Cookies</a></li>
+          <li><a href="#">Alergeny</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span id="year">2026</span> BoxTeplo s.r.o. · IČO 12345678</p>
+      <p>Vyrobeno s&nbsp;láskou k&nbsp;teplému jídlu.</p>
+    </div>
+  </footer>
+
+  <a href="#objednavka" class="mobile-cta btn btn-primary">Objednat do boxu</a>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
