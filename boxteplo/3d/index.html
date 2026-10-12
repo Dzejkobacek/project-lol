@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BoxTeplo 3D – Vyzkoušej chytrý box</title>
+  <meta name="description" content="Interaktivní 3D ukázka chytrého boxu BoxTeplo: vyber dvířka, objednej, nech jídlo ohřát a vyzvedni ho kódem." />
+  <meta name="theme-color" content="#E67E22" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="3d.css" />
+</head>
+<body data-state="idle">
+  <canvas id="scene" aria-label="Interaktivní 3D model chytrého boxu BoxTeplo" role="img"></canvas>
+
+  <header class="top">
+    <a href="../index.html" class="brand" aria-label="BoxTeplo – zpět na web">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32"><rect width="32" height="32" rx="9" fill="#E67E22"/><path d="M8 14h16v9a3 3 0 0 1-3 3H11a3 3 0 0 1-3-3z" fill="#fff"/><path d="M12.5 6.5c0 2-2 2-2 4M17 6.5c0 2-2 2-2 4M21.5 6.5c0 2-2 2-2 4" stroke="#fff" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg>
+      </span>
+      <span class="brand-text">Box<strong>Teplo</strong> <em>3D</em></span>
+    </a>
+    <a href="../index.html" class="back">← Zpět na web</a>
+  </header>
+
+  <ol class="steps" aria-label="Postup">
+    <li data-step="idle"><span>1</span>Vyber box</li>
+    <li data-step="pick"><span>2</span>Objednej</li>
+    <li data-step="heat"><span>3</span>Ohřev</li>
+    <li data-step="ready"><span>4</span>Odemkni</li>
+    <li data-step="open"><span>5</span>Jdi</li>
+  </ol>
+
+  <p class="hint" id="hint">Tažením otoč pohled · klikni na dvířka</p>
+
+  <section class="panel" aria-live="polite">
+    <!-- idle -->
+    <div class="view" data-view="idle">
+      <p class="kicker">Krok 1</p>
+      <h1>Vyber si box</h1>
+      <p>Klikni na libovolná dvířka. Zelená dioda znamená, že je box volný pro tvou krabičku.</p>
+    </div>
+
+    <!-- pick -->
+    <div class="view" data-view="pick" hidden>
+      <p class="kicker">Krok 2 · Box <b data-cell-name>A1</b></p>
+      <h2>Co si dáš?</h2>
+      <div class="meals" role="group" aria-label="Program">
+        <button class="meal is-active" data-meal="classic" aria-pressed="true"><i style="--c:#c98a4b"></i>Classic</button>
+        <button class="meal" data-meal="fit" aria-pressed="false"><i style="--c:#8a5a3b"></i>Fit</button>
+        <button class="meal" data-meal="light" aria-pressed="false"><i style="--c:#f08c75"></i>Light</button>
+        <button class="meal" data-meal="vege" aria-pressed="false"><i style="--c:#2ecc71"></i>Vege</button>
+      </div>
+      <p class="meal-info" id="meal-info"></p>
+      <div class="row">
+        <button class="btn btn-primary" id="btn-heat">Objednat a ohřát</button>
+        <button class="btn btn-ghost" id="btn-cancel">Zrušit</button>
+      </div>
+    </div>
+
+    <!-- heat -->
+    <div class="view" data-view="heat" hidden>
+      <p class="kicker">Krok 3 · Box <b data-cell-name>A1</b></p>
+      <h2>Ohřívám na ideální teplotu</h2>
+      <div class="gauge">
+        <div class="temp"><span id="temp">6</span><small>°C</small></div>
+        <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="bar"><i id="bar-fill"></i></div>
+      </div>
+      <p class="muted">Šetrný ohřev trvá jen pár minut – tady ho zrychlujeme.</p>
+    </div>
+
+    <!-- ready -->
+    <div class="view" data-view="ready" hidden>
+      <p class="kicker">Krok 4 · Box <b data-cell-name>A1</b></p>
+      <h2>Teplé a připravené</h2>
+      <p>Zadej kód z aplikace: <button class="code-hint" id="code-hint" title="Doplnit kód">••••</button></p>
+      <div class="code-display" id="code-display" aria-live="polite"><span></span><span></span><span></span><span></span></div>
+      <div class="keypad" id="keypad">
+        <button data-k="1">1</button><button data-k="2">2</button><button data-k="3">3</button>
+        <button data-k="4">4</button><button data-k="5">5</button><button data-k="6">6</button>
+        <button data-k="7">7</button><button data-k="8">8</button><button data-k="9">9</button>
+        <button data-k="del" aria-label="Smazat">⌫</button><button data-k="0">0</button><button data-k="ok" class="ok" aria-label="Odemknout">✓</button>
+      </div>
+      <p class="error" id="code-error" hidden>Špatný kód, zkus to znovu.</p>
+    </div>
+
+    <!-- open -->
+    <div class="view" data-view="open" hidden>
+      <p class="kicker">Krok 5</p>
+      <h2>Dvířka jsou otevřená</h2>
+      <p>Vezmi si krabičku, dokud je teplá.</p>
+      <button class="btn btn-primary" id="btn-take">Vyzvednout a jít</button>
+    </div>
+
+    <!-- done -->
+    <div class="view" data-view="done" hidden>
+      <p class="kicker">Hotovo</p>
+      <h2>Dobrou chuť! 🍽️</h2>
+      <p>Objednej. Vyzvedni. Ohřej. Jdi. Takhle jednoduše to funguje.</p>
+      <div class="row">
+        <button class="btn btn-primary" id="btn-again">Zkusit znovu</button>
+        <a class="btn btn-ghost" href="../index.html#objednavka">Objednat doopravdy</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="fallback" id="fallback" hidden>
+    <h2>3D zobrazení není dostupné</h2>
+    <p>Tvůj prohlížeč nebo zařízení nepodporuje WebGL. Podívej se na <a href="../index.html">běžnou verzi webu</a>.</p>
+  </div>
+
+  <script src="three.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
