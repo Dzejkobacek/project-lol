@@ -70,7 +70,7 @@ export function initHero(host, { getProgress, mobile }) {
   scene.add(world);
   const layout = () => {
     const aspect = W() / H();
-    if (aspect < 0.9) { world.position.set(0, -2.1, 0); world.scale.setScalar(0.82); }
+    if (aspect < 0.9 || W() <= 820) { world.position.set(0, -1.6, 0); world.scale.setScalar(0.82); }
     else { world.position.set(Math.min(4.2, 1.6 + aspect * 1.3), -0.6, 0); world.scale.setScalar(1); }
   };
   layout();
@@ -364,8 +364,9 @@ export function initHero(host, { getProgress, mobile }) {
 
   /* ---- visibility + resize ---- */
   new IntersectionObserver(([en]) => { visible = en.isIntersecting; if (visible) clock.getDelta(); }).observe(host);
+  // the host can change size without a window resize (e.g. the hero grows on mobile)
   let rT = 0;
-  window.addEventListener('resize', () => {
+  new ResizeObserver(() => {
     clearTimeout(rT);
     rT = setTimeout(() => {
       renderer.setSize(W(), H());
@@ -373,7 +374,7 @@ export function initHero(host, { getProgress, mobile }) {
       camera.updateProjectionMatrix();
       layout();
     }, 120);
-  });
+  }).observe(host);
 
   // fps guard: if the device struggles, drop pixel ratio
   let frames = 0; const t0 = performance.now();

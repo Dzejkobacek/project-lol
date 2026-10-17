@@ -36,7 +36,7 @@ document.addEventListener('click', (e) => {
   e.preventDefault();
   closeMenu();
   scrollToTarget(el);
-  history.replaceState(null, '', id);
+  try { history.replaceState(null, '', id); } catch (_) {}
   // move focus for keyboard users
   if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex', '-1');
   el.focus({ preventScroll: true });
@@ -247,8 +247,9 @@ function onScroll() {
 
     if (heroWrap) {
       const r = heroWrap.getBoundingClientRect();
-      const total = r.height - vh;
-      heroProgress = clamp(-r.top / Math.max(total, 1), 0, 1);
+      // on mobile the hero is not pinned, so the trim still needs some scroll distance
+      const total = Math.max(r.height - vh, vh * 0.6);
+      heroProgress = clamp(-r.top / total, 0, 1);
       if (heroBg && !reduceMotion) heroBg.style.transform = `scale(${1.08 + heroProgress * 0.08}) translateY(${heroProgress * 30}px)`;
     }
     if (reduceMotion) { stickyCta?.classList.toggle('is-visible', window.scrollY > vh * 0.6); return; }
