@@ -181,6 +181,7 @@ const revealIO = new IntersectionObserver((entries) => {
 }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
 export const observeReveal = (el) => revealIO.observe(el);
 $$('[data-reveal]').forEach(observeReveal);
+window.fyReady = true; // tells the inline fallback in <head> that reveals are running
 
 /* Split-text (word by word) */
 $$('.split').forEach((el) => {

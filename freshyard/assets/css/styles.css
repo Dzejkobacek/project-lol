@@ -142,7 +142,9 @@ p { margin: 0 0 1em; }
   position: fixed; inset: 0; z-index: 400; display: grid; place-items: center;
   background: radial-gradient(circle at 50% 45%, var(--coal-3), var(--coal-2) 70%);
   transition: opacity .6s var(--ease-out), visibility .6s;
+  animation: loader-auto-out .6s var(--ease-out) 3.4s forwards; /* hides itself even if JS never runs */
 }
+@keyframes loader-auto-out { to { opacity: 0; visibility: hidden; } }
 .loader.is-done { opacity: 0; visibility: hidden; }
 .loader__inner { display: grid; justify-items: center; gap: 22px; }
 .loader__stage { position: relative; width: 132px; height: 132px; perspective: 600px; }
@@ -648,6 +650,10 @@ p { margin: 0 0 1em; }
 }
 .about__media.is-in { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
 .no-js .about__media { clip-path: none; }
+.no-js .stars svg { opacity: 1; transform: none; }
+.no-js .tags-more-wrap, .no-js .faq-a { grid-template-rows: 1fr; }
+.no-js .tags--more .tag { opacity: 1; transform: none; }
+.no-js .tag-toggle { display: none; }
 .about__media img {
   position: absolute; left: 0; top: -12%; width: 100%; height: 124%; object-fit: cover;
   transform: translateY(var(--py, 0)) scale(1.04);
